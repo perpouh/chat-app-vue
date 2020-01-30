@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  weather-report:
+    image: weather-report
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8080:8080
+    volumes:
+      - ./www/data:/app
+    # command: npm start dev
