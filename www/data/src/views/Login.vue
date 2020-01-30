@@ -11,7 +11,7 @@
       <b-row>
         <b-col lg="4" md="3"></b-col>
         <b-col lg="4" md="6">
-          <LoginForm />>
+          <LoginForm />
         </b-col>
         <b-col lg="4" md="3"></b-col>
       </b-row>
