@@ -24,10 +24,14 @@ export default{
     state.users = [];
     state.messages = [];
   },
+  clearChatRoom(state){
+    state.users = [];
+    state.messages = [];
+  },
   setMessages(state, messages){
     state.messages = messages;
   },
-  addMessages(state, message){
+  addMessage(state, message){
     state.messages.push(message);
   },
   setSending(state, status){

@@ -47,5 +47,22 @@ export default{
     }catch(e){
       handleError(commit, e);
     }
+  },
+  async sendMessage({commit}, message){
+    try{
+      commit('setError', '');
+      commit('setSending', '');
+      const messageId = await chatkit.sendMessage(message);
+      return messageId;
+    }catch(e){
+      handleError(commit, e);
+    }finally{
+      commit('setSending', false);
+    }
+  },
+  async logout({commit}){
+    commit('reset');
+    chatkit.disconnectUser();
+    window.localStorage.clear();
   }
 }

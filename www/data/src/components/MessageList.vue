@@ -5,8 +5,8 @@
     <div id="chat-messages" class="message-group" v-chat-scroll="{smooth: true}">
       <div class="message" v-for="(message, index) in messages" :key="index">
         <div class="clearfix">
-          <h4 class="message-title">{{ message.name }}</h4>
           <small class="text-muted float-right">@{{ message.username }}</small>
+          <h4 class="message-title">{{ message.name }}</h4>
         </div>
         <p class="message-text">
           {{ message.text }}
@@ -16,6 +16,9 @@
         </div>
       </div>
     </div>
+    <div class="user-typing">
+      <small class="text-muted" v-if="userTyping">@{{ userTyping }} is typing...</small>
+    </div>
   </div>
 </template>
 
@@ -23,10 +26,11 @@
 import { mapState } from 'vuex'
 
 export default{
-  name: 'MessageList',
+  name: 'message-list',
   computed: {
     ...mapState([
-      'messages'
+      'messages',
+      'userTyping'
     ])
   }
 }
